@@ -11,7 +11,7 @@ activity = read.csv('activity.csv',header=T)
 
 ###Calculate the mean total number of steps taken per day
 
-####1. Make a histogram of the total number of steps taken each day
+#####1. Make a histogram of the total number of steps taken each day
 
 
 ```r
@@ -27,7 +27,7 @@ qplot(steps,data=totalplot,geom='histogram')
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
-####2. Calculate and report the mean and median total number of steps taken per day
+#####2. Calculate and report the mean and median total number of steps taken per day
 
 
 ```r
@@ -41,8 +41,7 @@ The mean and median of total number of steps taken per day are 9354.2295082 and
 
 ### Average daily activity pattern
 
-####1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) 
-and the average number of steps taken, averaged across all days (y-axis)
+#####1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 
 ```r
@@ -53,8 +52,7 @@ ggplot(data=daily_averages,aes(x=interval,y=steps))+
 
 ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
-####2. Which 5-minute interval, on average across all the days in the dataset, 
-contains the maximum number of steps?
+#####2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 
 ```r
@@ -67,8 +65,7 @@ The interval contains the maximum number of steps is 835.
 
 ###Inputting missing values
 
-####1. Calculate and report the total number of missing values in the dataset 
-(i.e. the total number of rows with NAs)
+#####1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
 
 ```r
@@ -77,9 +74,7 @@ nas = count(activity[is.na(activity)])$freq
 
 Total number of rows with NAs: 2304.
 
-####2. Devise a strategy for filling in all of the missing values in the dataset. 
-The strategy does not need to be sophisticated. For example, you could use 
-the mean/median for that day, or the mean for that 5-minute interval, etc.
+#####2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 
 ```r
@@ -92,8 +87,9 @@ for (i in 1:nrow(mid_activity)) {
 }
 ```
 
-####3. Create a new dataset that is equal to the original dataset but with the 
-missing data filled in.
+The strategy used here is to use the mean of the 5-min interval to fill the missing data.
+
+#####3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
 
 ```r
@@ -129,7 +125,7 @@ Inputting missing data increases the estimates of the total daily number of step
 
 ###Are there differences in activity patterns between weekdays and weekends?
 
-####1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
+#####1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
 
 
 ```r
@@ -143,7 +139,7 @@ for (i in 1:nrow(activity_no_missing)) {
 }
 ```
 
-####2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
+#####2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 
 ```r
@@ -154,4 +150,5 @@ ggplot(data=daily_no_missing,aes(x=interval,y=steps))+
 ```
 
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
+
 
